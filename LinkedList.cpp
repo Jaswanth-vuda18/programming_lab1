@@ -68,6 +68,16 @@ public:
 		}
 	}
 
+	bool search(T data){
+		Node<T> *current = head;
+		while(current != NULL){
+			if(current->getData() == data)
+				return true;
+			current = current->getNext();
+		}
+		return false;
+	}
+
 	void print(){
 		Node<T> *current = head;
 		while(current != NULL){
@@ -87,9 +97,19 @@ int main(){
 	list.insertNode(0);
 	list.insertNode(8);
 	list.insertNode(2);
+	
+	if(list.search(9))
+		cout<<"present"<<endl;
+	else
+		cout<<"Not present"<<endl;
 
-	list.deleteNode(1);	
+	list.deleteNode(2);	
 	list.print();
+	
+	if(list.search(9))
+		cout<<"present"<<endl;
+	else
+		cout<<"Not present"<<endl;
 
 	list.deleteNode(8);	
 	list.print();
