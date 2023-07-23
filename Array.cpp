@@ -11,6 +11,13 @@ public:
 		this->size = size;
 		arr = new T[size];
 	}
+	
+	void getArray(){
+		for(int i=0; i<size; i++){
+			cout << arr[i] << " ";
+		}
+		cout << endl;
+	}
 
 	void addElement(int index, T data){
 		if(index >= size || index < 0){
@@ -32,24 +39,18 @@ public:
 		return false;
 	}
 
-	void print(){
-		for(int i=0; i < size; i++){
-			cout << arr[i] << " "; 
-		}
-		cout << endl;
-	}
 };
 
 int main(){
-	Array<int> a(2);
-	a.addElement(0,1);
-	a.addElement(1,2);
-	a.addElement(2,3);
+	Array<float> a(2);
+	a.addElement(0, 1.23);
+	a.addElement(1, 3.54);
+	a.addElement(2, 4.5);
 	
 	if(a.search(3))
 		cout << "present" << endl;
 	else
 		cout << "Not present" << endl;
 
-	a.print();
+	a.getArray();
 }
