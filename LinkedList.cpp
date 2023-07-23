@@ -35,23 +35,44 @@ public:
 	}
 
 	void insertNode(T data){
-		Node<T> *cur = head;
+		Node<T> *current = head;
 		Node<T> *temp = new Node(data);
 		if(head == NULL){
 			head = temp;
 			return;	
 		}
-		while(cur->getNext() != NULL){
-			cur = cur->getNext();
+		while(current->getNext() != NULL){
+			current = current->getNext();
 		}
-		cur->setNext(temp);
+		current->setNext(temp);
 	}	
+	void deleteNode(T data){
+		Node<T> *current = head;
+		Node<T> *previous = NULL;
+
+		while(current != NULL){
+			if(current->getData() == data){
+				if(previous == NULL){
+					head = current->getNext();
+				}
+				else{
+					previous->setNext(current->getNext());
+				}
+
+				// if current node has a next
+				if(current->getNext())
+					current->setNext(NULL);	
+			}
+			previous = current;
+			current = current->getNext();
+		}
+	}
 
 	void print(){
-		Node<T> *cur = head;
-		while(cur != NULL){
-			cout<<cur->getData()<<" ";
-			cur = (cur->getNext());
+		Node<T> *current = head;
+		while(current != NULL){
+			cout<<current->getData()<<" ";
+			current = (current->getNext());
 		}
 		cout<<endl;
 	}
@@ -65,6 +86,11 @@ int main(){
 	list.insertNode(8);
 	list.insertNode(0);
 	list.insertNode(8);
-	
+	list.insertNode(2);
+
+	list.deleteNode(1);	
+	list.print();
+
+	list.deleteNode(8);	
 	list.print();
 }
