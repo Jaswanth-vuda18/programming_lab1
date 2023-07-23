@@ -23,6 +23,14 @@ public:
 	void deleteElement(int index){
 
 	}
+	
+	bool search(T data){
+		for(int i=0; i<size; i++){
+			if(arr[i] == data)
+				return true;
+		}
+		return false;
+	}
 
 	void print(){
 		for(int i=0; i < size; i++){
@@ -37,5 +45,11 @@ int main(){
 	a.addElement(0,1);
 	a.addElement(1,2);
 	a.addElement(2,3);
+	
+	if(a.search(3))
+		cout << "present" << endl;
+	else
+		cout << "Not present" << endl;
+
 	a.print();
 }
