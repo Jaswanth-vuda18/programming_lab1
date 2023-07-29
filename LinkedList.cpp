@@ -45,7 +45,41 @@ public:
 			current = current->getNext();
 		}
 		current->setNext(temp);
-	}	
+	}
+
+	void insertNodeAtIndex(int index, T data){
+		
+		Node<T> *current = head;
+		Node<T> *previous = NULL;
+		Node<T> *node = new Node(data);
+		
+		if(index > this->getSize() || index <= 0)
+			cout << "Index out of bounds!!" << endl;
+		
+		int j = 0;
+		
+		// using 1-indexing i.e., 
+		// index runs from 1 to N (if N is the size of the List) 
+		while(current != NULL){
+			j++;
+			if(j == index){
+				
+				if(previous == NULL){
+					head = node;
+					node->setNext(current);
+				}
+				else{
+					previous->setNext(node);
+				}
+				node->setNext(current);
+				break;
+			}
+			previous = current;
+			current = current->getNext();
+		}
+
+	}
+
 	void deleteNode(T data){
 		Node<T> *current = head;
 		Node<T> *previous = NULL;
@@ -78,6 +112,17 @@ public:
 		return false;
 	}
 
+	int getSize(){
+		Node<T> *current = head;
+		int size = 0;
+
+		while(current != NULL){
+			size++;
+			current = current->getNext();
+		}
+		return size;
+	}
+		
 	void print(){
 		Node<T> *current = head;
 		while(current != NULL){
@@ -97,6 +142,7 @@ int main(){
 	list.insertNode(0);
 	list.insertNode(8);
 	list.insertNode(2);
+	list.insertNodeAtIndex(0, 3);
 	
 	if(list.search(9))
 		cout<<"present"<<endl;
