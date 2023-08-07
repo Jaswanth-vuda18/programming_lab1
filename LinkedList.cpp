@@ -34,9 +34,21 @@ public:
 		this->head = NULL;
 	}
 
+	Node<T>* getHead(){
+		if(head == NULL)
+			return NULL;
+		return head;
+	}
+
+	bool isEmpty(){
+		if(!this->head)
+			return true;
+		return false;
+	}
+
 	void insertNode(T data){
 		Node<T> *current = head;
-		Node<T> *temp = new Node(data);
+		Node<T> *temp = new Node<T>(data);
 		if(head == NULL){
 			head = temp;
 			return;	
@@ -51,11 +63,18 @@ public:
 		
 		Node<T> *current = head;
 		Node<T> *previous = NULL;
-		Node<T> *node = new Node(data);
+		Node<T> *node = new Node<T>(data);
 		
+		if(head == NULL && index == 1){
+			head = node;
+			return;
+		}
+
 		if(index > this->getSize() || index <= 0)
 			cout << "Index out of bounds!!" << endl;
 		
+		
+
 		int j = 0;
 		
 		// using 1-indexing i.e., 
@@ -133,6 +152,7 @@ public:
 	}
 };
 
+/*
 int main(){
 	
 	LinkedList<int> list;
@@ -160,3 +180,4 @@ int main(){
 	list.deleteNode(8);	
 	list.print();
 }
+*/
