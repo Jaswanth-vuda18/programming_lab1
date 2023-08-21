@@ -1,39 +1,54 @@
 #include<iostream>
+#include "Stack.h"
 #include "LinkedList.cpp"
-using namespace std;
 
-template <typename T> class Stack{
+using namespace std;
+/*
+template <typename T> 
+class Stack{
 private:
 	LinkedList<T> stack;
 public:
-	Stack(){
+*/
+
+template <typename T> 
+Stack<T>::Stack(){
 		//stack = new LinkedList<T>();
-	}
+}
 
-	void push(T data){
-		// insert node at head 
-		stack.insertNodeAtIndex(1,data);
-	}
+				
+template <typename T> 
+void Stack<T>::push(T data){
+	// insert node at head 
+	stack.insertNodeAtIndex(1,data);
+}
 
-	void pop(){
-		if(stack.isEmpty()){
-			cout << "stack is empty!!" << endl;
-			return;
-		}
-		stack.deleteNode(stack.getHead()->getData());
+template <typename T> 
+void Stack<T>::pop(){
+	if(stack.isEmpty()){
+		cout << "stack is empty!!" << endl;
+		return;
 	}
+	stack.deleteNode(stack.getHead()->getData());
+}
 
-	bool isEmpty(){
-		return stack.isEmpty();
-	}
+template <typename T> 
+bool Stack<T>::isEmpty(){
+	return stack.isEmpty();
+}
 
-	T top(){
-		if(stack.isEmpty()){
-			return -1;
-		}
-		return stack.getHead()->getData();
+template <typename T> 
+T Stack<T>::top(){
+	if(stack.isEmpty()){
+		return -1;
 	}
-};
+	return stack.getHead()->getData();
+}
+
+void tempFunc(){
+	LinkedList<int> stack;
+}
+/*
 
 int main(){
 	Stack<int> st;
@@ -49,3 +64,4 @@ int main(){
 	cout << st.top() << endl;
 	return 0;
 }
+*/
