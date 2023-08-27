@@ -1,18 +1,23 @@
-#ifndef _ARRAY_H_
-#define _ARRAY_H_
+#ifndef _DARRAY_H_
+#define _DARRAY_H_
+
+#include "Array.h"
+//const int _DEFAULT_ARRAY_SIZE = 4;
+
 template <typename T>
-class Array{
+class DynamicArray{
 private:
 	int size;
 	int index;
 	T* arr;
 
 public:
-	Array();
-	Array(int);
+	DynamicArray();
+	DynamicArray(int);
+	DynamicArray(int,const T&);
 	T* operator->();
-	T &operator[](int);
-	T* release();
+	T& operator[](int);
+	void resize(int);
 	void getArray();
 	void setArray(int);
 	T getElement(int);
@@ -25,5 +30,5 @@ public:
 	bool isEmpty();
 	bool search(T);	
 };
-#include "Array.cpp"
+#include "DynamicArray.cpp"
 #endif

@@ -1,14 +1,15 @@
 #include<iostream>
-#include "Graph.h"
+#include "GraphMatrix.h"
 #include "Queue.h"
-#include "Array.h"
+#include "Stack.h"
+//#include "Array.h"
 
 using namespace std;
 
 template <typename T>
 Graph<T>::Graph(int v){
 	this->v = v;
-	adjMatrix = new AdjacencyMatrix<T>(v);
+	adjMatrix = new AdjacencyMatrix<T>[v];
 }
 
 template <typename T>
@@ -59,6 +60,10 @@ void Graph<T>::DFS(int src, Array<T> visited){
 	}
 	cout<<endl;
 }
+
+
+
+
 /*
 int main(){
 	int n = 3;

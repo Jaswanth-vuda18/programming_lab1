@@ -4,7 +4,7 @@
 using namespace std;
 
 template <typename T>
-AdjacencyMatix<T>::AdjacencyMatrix(int size){
+AdjacencyMatrix<T>::AdjacencyMatrix(int size){
 	this->size = size;
 	adjMatrix = new AdjacencyMatrix<T>[size];
 	for(int i=0;i<size;i++){

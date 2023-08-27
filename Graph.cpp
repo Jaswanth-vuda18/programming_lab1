@@ -1,5 +1,6 @@
 #include<iostream>
 #include "Graph.h"
+#include "Stack.h"
 #include "Queue.h"
 #include "Array.h"
 
@@ -17,7 +18,7 @@ void Graph<T>::addEdge(int a, int b){
 }
 
 template <typename T>
-void Graph<T>::BFS(int src, Array<T> visited, Array<T> res){
+void Graph<T>::BFS(int src, Array<T> visited){
 	Queue<T> q;
 	q.push(src);
 

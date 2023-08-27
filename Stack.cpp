@@ -1,6 +1,6 @@
 #include<iostream>
 #include "Stack.h"
-#include "LinkedList.cpp"
+//#include "LinkedList.cpp"
 
 using namespace std;
 /*

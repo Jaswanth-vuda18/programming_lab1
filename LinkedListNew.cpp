@@ -51,7 +51,7 @@ LinkedList<T>::LinkedList(){
 
 template <typename T>
 Node<T>* LinkedList<T>::getHead(){
-	if(this->head == NULL)
+	if(head == NULL)
 		return NULL;
 	return head;
 }
@@ -156,7 +156,7 @@ void LinkedList<T>::deleteTailNode(){
 
 template <typename T>
 bool LinkedList<T>::search(T data){
-	Node<T> *current = head;
+	Node<T>* current = head;
 	while(current != NULL){
 		if(current->getData() == data)
 			return true;
@@ -179,10 +179,6 @@ int LinkedList<T>::getSize(){
 		
 template <typename T>
 void LinkedList<T>::print(){
-	// cout << head->getData() << endl;
-	// if(this->head == NULL){
-	// 	cout << "The list is empty" << endl;
-	// }
 	Node<T> *current = head;
 	while(current != NULL){
 		cout<<current->getData()<<" ";
