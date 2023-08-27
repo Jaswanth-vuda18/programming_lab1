@@ -160,11 +160,12 @@ void DynamicArray<T>::deleteElement(const T &data){
 
 template <typename T>
 void DynamicArray<T>::deleteElementFromEnd(){
-	if(index = size/4)
+	if(index == size/4)
 		resize(size/2);
 	index--;
 	if(index == 0)
 		cout<<"Array is empty now."<<endl;
+	
 }
 
 /*

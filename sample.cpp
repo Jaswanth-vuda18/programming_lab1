@@ -54,16 +54,27 @@ int main(){
 	//DynamicArray<LinkedList<int>> arr(3);
 	
 
-	// DynamicArray<int> arr;
-	// arr.addElement(2);
-	// arr.addElement(3);
-	// arr.addElement(4);
-	// arr.addElement(5);
-	// arr.addElement(6);
-	// arr.getArray();
-	// arr.deleteElementFromEnd();
-	// arr.getArray();
-	//arr.deleteElement(4);
+	DynamicArray<int> arr;
+	arr.addElement(2);
+	arr.addElement(3);
+	arr.addElement(4);
+	arr.addElement(5);
+	arr.addElement(6);
+	arr.getArray();
+	cout << "Size : "<<arr.getSize()<<endl;
+	arr.deleteElementFromEnd();
+	arr.getArray();
+	cout << "Size : "<<arr.getSize()<<endl;
+	arr.deleteElementFromEnd();
+	arr.getArray();
+	cout << "Size : "<<arr.getSize()<<endl;
+	arr.deleteElementFromEnd();
+	arr.getArray();
+	cout << "Size : "<<arr.getSize()<<endl;
+	arr.deleteElementFromEnd();
+	arr.getArray();
+	cout << "Size : "<<arr.getSize()<<endl;
+	// arr.deleteElement(4);
 	//arr.getArray();
 	//cout << arr.getElement(0).getHead() << endl;
 
