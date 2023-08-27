@@ -2,7 +2,6 @@
 #define _DARRAY_H_
 
 #include "Array.h"
-//const int _DEFAULT_ARRAY_SIZE = 4;
 
 template <typename T>
 class DynamicArray{

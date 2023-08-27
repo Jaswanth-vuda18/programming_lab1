@@ -4,11 +4,16 @@
 using namespace std;
 
 template <typename T>
+AdjacencyMatrix<T>::AdjacencyMatrix(){
+}
+
+template <typename T>
 AdjacencyMatrix<T>::AdjacencyMatrix(int size){
 	this->size = size;
-	adjMatrix = new AdjacencyMatrix<T>[size];
+	adjMatrix = new Array<T>[size];
 	for(int i=0;i<size;i++){
-		adjMatrix[i] = new Array<T>(size);
+		Array<T> temp(size);
+		adjMatrix[i] = temp;
 	}
 }
 
@@ -21,6 +26,14 @@ void AdjacencyMatrix<T>::addEdge(int a, int b){
 	adjMatrix[a].setElement(b,1);
 }
 
+template <typename T>
+Array<T> AdjacencyMatrix<T>::getArray(int index){
+	if(index >= size)
+	{
+		return Array<T>();
+	}
+	return adjMatrix[index];
+}
 template <typename T>
 void AdjacencyMatrix<T>::print(){
 	for(int i=0;i<size;i++){

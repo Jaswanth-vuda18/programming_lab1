@@ -9,7 +9,11 @@ private:
 	Array<T>* adjMatrix;
 
 public:
+	AdjacencyMatrix();
+	
 	AdjacencyMatrix(int);
+
+	Array<T> getArray(int);
 
 	void addEdge(int ,int);
 

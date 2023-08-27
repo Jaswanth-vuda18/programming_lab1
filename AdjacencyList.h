@@ -11,12 +11,15 @@ private:
 	LinkedList<T> *adjList;
 
 public:
+	AdjacencyList();
 	AdjacencyList(int n);
-	AdjacencyList(int n, const T &data);
+	// AdjacencyList(int n, const T &data);
 	
-	LinkedList<T>* getAdjList();
+	LinkedList<T> getList(int);
 
 	void addEdge(int a, int b);
+
+
 
 	DynamicArray<T> getArray();
 

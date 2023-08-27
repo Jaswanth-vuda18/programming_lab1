@@ -1,6 +1,6 @@
 #include<iostream>
 #include "DynamicArray.h"
-const int _DEFAULT_ARR_SIZE = 4;
+const int _DEFAULT_ARR_SIZE = 1;
 using namespace std;
 
 template <typename T>
@@ -17,7 +17,7 @@ template <typename T>
 DynamicArray<T>::DynamicArray(int n, const T &data)
 {
 	size = n;
-	index = 0;
+	index = n;
 	arr = new T[size];
 	for(int i=0;i<n;i++){
 		arr[i] = data;
@@ -41,7 +41,7 @@ T& DynamicArray<T>::operator[](int i){
 	
 template <typename T>
 void DynamicArray<T>::getArray(){
-	for(int i=0; i<size; i++){
+	for(int i=0; i<index; i++){
 		cout << arr[i] << " ";
 	}
 	cout << endl;

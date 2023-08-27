@@ -9,7 +9,8 @@ using namespace std;
 template <typename T>
 Graph<T>::Graph(int v){
 	this->v = v;
-	adjList = new AdjacencyList<T>(v);
+	AdjacencyList<T> temp(v);
+	adjList = temp;
 }
 
 template <typename T>
@@ -18,48 +19,67 @@ void Graph<T>::addEdge(int a, int b){
 }
 
 template <typename T>
-void Graph<T>::BFS(int src, Array<T> visited){
+void Graph<T>::BFS(int src, DynamicArray<T> &visited){
 	Queue<T> q;
 	q.push(src);
+	visited[src] = 1;
 
 	while(!q.isEmpty()){
 		int t = q.front();
+		// cout<<"size of queue: "<<q.size()<<endl;
 		//res.addElement(t);
 		cout << t << " ";
 		q.pop();
-		visited.setElement(t,1);
-		Node<T>* cur = adjList.getAdjList()[t].getHead();
+		// visited.setElement(t,1);
+		LinkedList<T> temp = adjList.getList(t);
+		Node<T> * cur = temp.getHead();
 		while(cur != NULL){
-			q.push(cur->getData());
-			cur = cur->getNext();
+			int x = cur->getData();
+			if(visited[x] == 0){
+				visited[x] = 1;
+				q.push(x);
+			}
+			cur = (cur->getNext());
 		}
 	}
 	cout<<endl;
 }
 
 template <typename T>
-void Graph<T>::DFS(int src, Array<T> visited){
+void Graph<T>::DFS(int src, DynamicArray<T> &visited){
+	
 	Stack<T> st;
 	st.push(src);
+	visited[src] = 1;
+	cout << src << " ";
 
 	while(!st.isEmpty()){
 		T t = st.top();
-		st.pop();
-		if(visited.getElement(t) == 0){
-			cout << t <<" ";
-		       	visited.setElement(t,1);	
-		}
-		Node<T>* cur = adjList.getAdjList()[t].getHead();
-                while(cur != NULL){
-			if(visited.getElement(cur->getData()) == 0){
-                        	st.push(cur->getData());
-			}
-			cur = cur->getNext();
-                }
+		int flag = 0;
 
+		// if(visited.getElement(t) == 0){
+		// 	cout << t <<" ";
+		//        	visited.setElement(t,1);	
+		// }
+		LinkedList<T> temp = adjList.getList(t);
+		Node<T> * cur = temp.getHead();
+		while(cur != NULL){
+			int x = cur->getData();
+			if(visited[x] == 0){
+				visited[x] = 1;
+				st.push(x);
+				cout << x << " ";
+				flag++;
+				break;
+			}
+			cur = (cur->getNext());
+		}
+		if(flag == 0)
+			st.pop();
 	}
 	cout<<endl;
 }
+
 /*
 int main(){
 	int n = 3;

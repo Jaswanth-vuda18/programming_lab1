@@ -1,19 +1,22 @@
 #include<iostream>
 #include "DynamicArray.h"
+#include "Array.h"
 #include "LinkedList.h"
 #include "AdjacencyList.h"
+#include "AdjacencyMatrix.h"
+#include "Graph.h"
 using namespace std;
 
 int main(){
 
-	AdjacencyList<int> adjList(4);
-	adjList.addEdge(0,1);
-	adjList.addEdge(0,2);
-	adjList.addEdge(1,3);
-	// adjList.addEdge(1,2);
-	// adjList.addEdge(2,0);
-	// adjList.addEdge(2,1);
-	adjList.print();
+	// AdjacencyList<int> adjList(4);
+	// adjList.addEdge(0,1);
+	// adjList.addEdge(0,2);
+	// adjList.addEdge(1,3);
+	// // adjList.addEdge(1,2);
+	// // adjList.addEdge(2,0);
+	// // adjList.addEdge(2,1);
+	// adjList.print();
 	// cout << adjList. << endl;
 
 
@@ -51,25 +54,46 @@ int main(){
 	//DynamicArray<LinkedList<int>> arr(3);
 	
 
-	//arr.addElement(2);
-	//arr.addElement(3);
-	//arr.getArray();
+	// DynamicArray<int> arr;
+	// arr.addElement(2);
+	// arr.addElement(3);
+	// arr.addElement(4);
+	// arr.addElement(5);
+	// arr.addElement(6);
+	// arr.getArray();
+	// arr.deleteElementFromEnd();
+	// arr.getArray();
 	//arr.deleteElement(4);
 	//arr.getArray();
 	//cout << arr.getElement(0).getHead() << endl;
 
-	// DynamicArray<int> arr(3,2);
 	// arr.getArray();
-	
-	// LinkedList<int> * list = new LinkedList<int> [2];
-	// LinkedList<int> l1;
-	// LinkedList<int> l2;
-	// l1.insertNode(1);
-	// l2.insertNode(2);
-	// list[0].insertNode(1);
-	// list[0].insertNode(3);
-	// list[1].insertNode(2);
-	// list[1].insertNode(4);
-	// list[0].print();
-	// list[1].print();
+
+	// AdjacencyList<int> adj;
+	// AdjacencyList<int> nadj(5);
+	// adj = nadj;
+	// adj.addEdge(0,1);
+	// adj.addEdge(0,2);
+	// adj.addEdge(0,3);
+	// adj.addEdge(0,4);
+	// // adj.print();
+	// adj.getList(0).print();
+	// Array<int> arr(5);
+	// arr.getArray();
+
+	// Array<int> p;
+	// Array<int> q(3);
+	// p = q;
+	// p[2] = 56;
+	// p[1] = 5;
+	// p[3] = 5;
+	// p.getArray();
+
+
+	// AdjacencyMatrix<int> adjMat(3);
+	// adjMat.addEdge(0,1);
+	// adjMat.addEdge(0,2);
+	// // Array<int> a = adjMat.getArray(0);
+	// // a.getArray();
+	// adjMat.print();
 }

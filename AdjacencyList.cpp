@@ -4,6 +4,12 @@
 using namespace std;
 
 template <typename T>
+AdjacencyList<T>::AdjacencyList(){
+	// this->size = n;
+	// adjList = new LinkedList<T> [n];
+}
+
+template <typename T>
 AdjacencyList<T>::AdjacencyList(int n){
 	this->size = n;
 	adjList = new LinkedList<T> [n];
@@ -26,10 +32,14 @@ void AdjacencyList<T>::addEdge(int a, int b){
 	adjList[b].insertNode(a);
 }
 
-// template <typename T>
-// DynamicArray<T>* AdjacencyList<T>::getArray(int index){
-// 	return adjList[index]->print();
-// }
+template <typename T>
+LinkedList<T> AdjacencyList<T>::getList(int index){
+	if(index >= size){
+		cout << "List is empty" << endl;
+		return LinkedList<T>();
+	}
+	return adjList[index];
+}
 
 template <typename T>
 void AdjacencyList<T>::print(){

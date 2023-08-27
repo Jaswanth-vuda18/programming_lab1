@@ -10,6 +10,7 @@ private:
 
 public:
 	Queue();
+	int size();
 	void push(T data);
 	void pop();
 	bool isEmpty();

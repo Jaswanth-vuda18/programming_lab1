@@ -4,7 +4,7 @@ template <typename T>
 class Array{
 private:
 	int size;
-	int index;
+	// int index;
 	T* arr;
 
 public:

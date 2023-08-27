@@ -1,7 +1,7 @@
 #ifndef _GRAPH_H_
 #define _GRAPH_H_
 #include "AdjacencyList.h"
-#include "Array.h" 
+#include "DynamicArray.h" 
 
 template <typename T>
 class Graph{
@@ -12,8 +12,8 @@ private:
 public:
 	Graph(int);
 	void addEdge(int, int);
-	void DFS(int src, Array<T> visited);
-	void BFS(int src, Array<T> visited);
+	void DFS(int src, DynamicArray<T> &visited);
+	void BFS(int src, DynamicArray<T> &visited);
 };
 
 #include "Graph.cpp"

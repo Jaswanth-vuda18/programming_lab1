@@ -9,6 +9,11 @@ Queue<T>::Queue(){
 }
 
 template <typename T> 
+int Queue<T>::size(){
+	return queue.getSize();
+}
+
+template <typename T> 
 void Queue<T>::push(T data){
 	if(queue.getSize() == 0){
 		queue.insertNodeAtIndex(1,data);

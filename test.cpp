@@ -1,27 +1,28 @@
 #include <iostream>
 #include "Graph.h"
-#include "Array.h"
+#include "DynamicArray.h"
 using namespace std;
 
 int main(){
-        int n = 3;
+        int n = 8;
         Graph<int> graph(n);
-        //AdjacencyList<int> adj(n);
 
         graph.addEdge(0,1);
-        graph.addEdge(0,2);
-        graph.addEdge(1,0);
+        graph.addEdge(0,3);
         graph.addEdge(1,2);
-        graph.addEdge(2,0);
-        graph.addEdge(2,1);
+        graph.addEdge(3,4);
+        graph.addEdge(3,7);
+        graph.addEdge(4,5);
+        graph.addEdge(4,6);
+        graph.addEdge(4,7);
+        graph.addEdge(5,6);
+        graph.addEdge(7,6);
 
-        //adj.print();
-        Array<int> visited(n);
-        for(int i=0;i<n;i++){
-                visited.setElement(i,0);
-        }
-        Array<int> res(n);
-        graph.BFS(0,visited,res);
-        res.getArray();
+        DynamicArray<int> visited(n,0);
+        DynamicArray<int> visit(n,0);
+        cout << "BFS of the given graph : ";
+        graph.BFS(0,visited);
+        cout << "\nDFS of the given graph : ";
+        graph.DFS(0,visit);
 
 }

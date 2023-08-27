@@ -11,8 +11,8 @@ private:
 public:
 	Graph(int);
 	void addEdge(int, int);
-	void DFS(int src, Array<T> visited);
-	void BFS(int src, Array<T> visited);
+	void DFS(int src, Array<T> &visited);
+	void BFS(int src, Array<T> &visited);
 };
 
 #include "GraphMatrix.cpp"
