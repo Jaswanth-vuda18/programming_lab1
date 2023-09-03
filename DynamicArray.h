@@ -23,8 +23,10 @@ public:
 	void setElement(int, T);
 	int getIndex();
 	int getSize();
+	void addElementAtStart(const T&);
 	void addElement(const T&);
 	void deleteElement(const T&);
+	void deleteElementFromStart();
 	void deleteElementFromEnd();
 	bool isEmpty();
 	bool search(T);	

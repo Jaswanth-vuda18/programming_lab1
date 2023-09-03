@@ -118,6 +118,29 @@ void DynamicArray<T>::addElement(const T &data){
 	index++;	
 }
 
+template <typename T>
+void DynamicArray<T>::addElementAtStart(const T &data){
+	if(index == size)
+		resize(2*size);
+	if(index == 0)
+	{
+		arr[index] = data;
+	}
+	else{
+		T first = arr[0];
+		T temp = arr[0];
+		arr[0] = data;
+		for(int i=1;i<index;i++){
+			temp = arr[i];
+			arr[i] = first;
+			first = temp;
+		}
+		arr[index] = first;
+	}
+	// arr[index] = data;
+	index++;	
+}
+
 /*
 template <typename T>
 void Array<T>::setElement(int ind, T data){
@@ -162,6 +185,19 @@ template <typename T>
 void DynamicArray<T>::deleteElementFromEnd(){
 	if(index == size/4)
 		resize(size/2);
+	index--;
+	if(index == 0)
+		cout<<"Array is empty now."<<endl;
+	
+}
+
+template <typename T>
+void DynamicArray<T>::deleteElementFromStart(){
+	if(index == size / 4)
+		resize(size / 2);
+	for(int i=1;i<index;i++){
+		arr[i-1] = arr[i];
+	}
 	index--;
 	if(index == 0)
 		cout<<"Array is empty now."<<endl;
