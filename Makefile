@@ -6,6 +6,22 @@ testCases.o:
 run:
 	./output	
 
+List:
+	g++ -D LIST -o output testCases.cpp
+	./output
+
+Array:
+	g++ -o output testCases.cpp
+	./output
+
+BFS:
+	g++ -D BFS -o output Bfs_or_Dfs.cpp
+	./output
+DFS:
+	g++ -o output Bfs_or_Dfs.cpp
+	./output
+
+
 graphList : graph1 run1
 graph1: test.cpp
 	g++ test.cpp
@@ -19,4 +35,4 @@ run2 :
 	./a.out
 
 clean:
-	rm testCases.o output
+	rm testCases.o output *.txt *.out *.exe

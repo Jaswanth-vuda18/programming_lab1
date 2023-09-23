@@ -35,14 +35,14 @@ int main(){
 
 				int no_of_insertions = prob_insertion*n;
 				int no_of_deletions = prob_deletion*n;
-
+				
+				#ifndef LIST 
 				DynamicArray<int> arr;
-				LinkedList<int> list;
 
 				for(int i=0;i<n;i++){
 					int x = rand() % 100 + 1;
 					arr.addElement(x);
-					list.insertNode(x);
+					// list.insertNode(x);
 				}
 
 				start = clock();
@@ -67,7 +67,14 @@ int main(){
 				outFile1 << prob_insertion*100 << " " << time_1[t] << endl;
 				cout << "Array: \n";
 				arr.getArray();
-
+				
+				#else
+				LinkedList<int> list;
+				for(int i=0;i<n;i++){
+					int x = rand() % 100 + 1;
+					// arr.addElement(x);
+					list.insertNode(x);
+				}
 				start = clock();
 
 				for(int i=0;i<no_of_insertions;i++){
@@ -85,7 +92,7 @@ int main(){
 				outFile2 << prob_deletion*100 << " " << time_2[t] << endl;
 				cout << "\nLinkedList:\n";
 				list.print();
-
+				#endif
 				
 				cout << "---------------------------------------------------------------------------------------------------------------------"<<endl;
 				prob_insertion += 0.1;
@@ -137,19 +144,19 @@ int main(){
 				
 				while(p < 10){
 				
-					DynamicArray<int> arr;
-					LinkedList<int> list;
-					for(int i=0;i<n;i++){
-						int x = rand() % 100 + 1;
-						arr.addElement(x);
-						list.insertNode(x);
-					}
 					int ins_from_start = start_prob*no_of_insertions;
 					int ins_from_end = end_prob*no_of_insertions;
 					
 					int del_from_start = start_prob*no_of_deletions;
 					int del_from_end = end_prob*no_of_deletions;
 
+					#ifndef LIST
+					DynamicArray<int> arr;
+					for(int i=0;i<n;i++){
+						int x = rand() % 100 + 1;
+						arr.addElement(x);
+						// list.insertNode(x);
+					}
 
 					start = clock();
 
@@ -189,6 +196,13 @@ int main(){
 					cout << "\nArray: \n";
 					arr.getArray();
 
+					#else
+					LinkedList<int> list;
+					for(int i=0;i<n;i++){
+						int x = rand() % 100 + 1;
+						// arr.addElement(x);
+						list.insertNode(x);
+					}
 					start = clock();
 
 					for(int i=0;i<ins_from_start;i++){
@@ -214,6 +228,8 @@ int main(){
 
 					cout << "LinkedList:\n";
 					list.print();
+
+					#endif
 					start_prob += 0.1;
 					end_prob -= 0.1;
 					p++;
