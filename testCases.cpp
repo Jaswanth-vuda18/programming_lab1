@@ -24,7 +24,8 @@ int main(){
 	cin>>opt;
 	switch(opt){
 		case 1:{
-
+			outFile1.open("output_array_1.dat");
+			outFile2.open("output_list_1.dat");
 			int t = 0;
 			float prob_insertion = 0.1;
 			float prob_deletion = 0.9;
@@ -63,7 +64,7 @@ int main(){
 				stop = clock();
 
 				time_1[t] = double(stop - start); 
-
+				outFile1 << prob_insertion*100 << " " << time_1[t] << endl;
 				cout << "Array: \n";
 				arr.getArray();
 
@@ -80,6 +81,8 @@ int main(){
 				stop = clock();
 			
 				time_2[t] = double(stop - start);
+				
+				outFile2 << prob_deletion*100 << " " << time_2[t] << endl;
 				cout << "\nLinkedList:\n";
 				list.print();
 
@@ -103,6 +106,9 @@ int main(){
 				// cout << time_2[i] << " ";
 			}
 			cout << avg/10 << " seconds" << endl;
+			
+			outFile1.close();
+			outFile2.close();
 			break;
 
 		}
@@ -176,7 +182,7 @@ int main(){
 
 					stop = clock();
 
-					t_1[t][p] = double(stop - start); 
+					t_1[t][p] = double(stop - start)/CLOCKS_PER_SEC; 
 					outFile1 << t_1[t][p] << " ";
 
 
@@ -203,7 +209,7 @@ int main(){
 
 					stop = clock();
 				
-					t_2[t][p] = double(stop - start);
+					t_2[t][p] = double(stop - start)/CLOCKS_PER_SEC;
 					outFile2 << t_2[t][p] << " ";
 
 					cout << "LinkedList:\n";

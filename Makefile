@@ -19,4 +19,4 @@ run2 :
 	./a.out
 
 clean:
-	rm a.out testCases.o output
+	rm testCases.o output

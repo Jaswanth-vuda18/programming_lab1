@@ -25,6 +25,17 @@ void Graph<T>::addEdge(int a, int b){
 }
 
 template <typename T>
+void Graph<T>::addEdgeDirected(int a, int b){
+	if(a < 0 || a >= v || b < 0 || b >= v)
+	{
+		cout << "vertex is out of bounds!!" << endl;	
+		return;
+	}
+	adjMatrix.addEdge(a,b);
+	// adjMatrix.addEdge(b,a);
+}
+
+template <typename T>
 void Graph<T>::BFS(int src, Array<T> &visited){
 	Queue<T> q;
 	q.push(src);
